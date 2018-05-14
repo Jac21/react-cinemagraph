@@ -23,12 +23,20 @@
     "react": "16.x"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
     "nwb": "0.21.x",
+    "prettier-eslint": "^8.8.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   },
   "author": "",
-  "homepage": "",
+  "homepage": "https://www.jeremycantu.com/#!/developer",
   "license": "MIT",
   "repository": "",
   "keywords": [
