@@ -27,7 +27,9 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-react-app": "^2.1.0",
-    "eslint-loader": "1.9.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
     "nwb": "0.21.x",
@@ -36,10 +38,13 @@
     "react-dom": "^16.3.2"
   },
   "author": "",
-  "homepage": "https://www.jeremycantu.com/#!/developer",
+  "homepage": "https://www.jeremycantu.com",
   "license": "MIT",
   "repository": "",
   "keywords": [
     "react-component"
-  ]
+  ],
+  "eslintConfig": {
+    "extends": "react-app"
+  }
 }
