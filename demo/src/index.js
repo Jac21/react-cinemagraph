@@ -5,16 +5,10 @@ import Cinemagraph from '../../src';
 
 class Demo extends Component {
   state = {
-    loading: false,
     fallbackImage: './demo/assets/Disco.jpg',
     fallbackImageAlt: 'Disco',
-    mp4Source: './demo/assets/Disco.mp4'
-  };
-
-  handleToggleLoading = () => {
-    this.setState({
-      loading: !this.state.loading
-    });
+    mp4Source: './demo/assets/Disco.mp4',
+    webmSource: './demo/assets/Disco.webm'
   };
 
   render() {
@@ -26,6 +20,7 @@ class Demo extends Component {
           fallbackImage={this.state.fallbackImage}
           fallbackImageAlt={this.state.fallbackImageAlt}
           mp4Source={this.state.mp4Source}
+          webmSource={this.state.webmSource}
         />{' '}
       </div>
     );

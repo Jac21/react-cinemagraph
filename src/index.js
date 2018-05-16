@@ -14,6 +14,8 @@ const Cinemagraph = props => {
         <video autoPlay muted loop className="fillWidth">
           <source src={props.mp4Source} type="video/mp4" /> Your browser does
           not support the video tag. I suggest you upgrade your browser.{' '}
+          <source src={props.webmSource} type="video/webm" />Your browser does
+          not support the video tag. I suggest you upgrade your browser.
         </video>{' '}
       </div>{' '}
     </div>
@@ -21,16 +23,10 @@ const Cinemagraph = props => {
 };
 
 Cinemagraph.propTypes = {
-  // disabled: t.bool,
-  // loading: t.bool,
   fallbackImage: t.string,
   fallbackImageAlt: t.string,
-  mp4Source: t.string
+  mp4Source: t.string,
+  webmSource: t.string
 };
-
-// Cinemagraph.defaultProps = {
-//   disabled: false,
-//   loading: false
-// };
 
 export default Cinemagraph;
