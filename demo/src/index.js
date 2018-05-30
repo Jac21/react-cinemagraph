@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-import Cinemagraph from '../../src';
+import { Cinemagraph } from '../../src';
 
 class Demo extends Component {
   state = {
