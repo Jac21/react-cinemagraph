@@ -15,7 +15,6 @@ class Demo extends Component {
     return (
       <div>
         <Cinemagraph
-          loading={this.state.loading}
           fallbackImage={this.state.fallbackImage}
           fallbackImageAlt={this.state.fallbackImageAlt}
           mp4Source={this.state.mp4Source}

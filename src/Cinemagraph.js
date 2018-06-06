@@ -27,7 +27,9 @@ class Cinemagraph extends Component {
   scaleVideoContainer() {
     const height = window.innerHeight + 5;
     const unitHeight = `${parseInt(height, 10)}px`;
-    document.getElementsByClassName('homepage-hero-module')[0].style.height = unitHeight;
+    document.getElementsByClassName(
+      'homepage-hero-module'
+    )[0].style.height = unitHeight;
   }
 
   initBannerVideoSize(elements) {
@@ -47,7 +49,8 @@ class Cinemagraph extends Component {
 
     document.querySelectorAll(elements).forEach(element => {
       const videoAspectRatio =
-        element.getAttribute('data-height') / element.getAttribute('data-width');
+        element.getAttribute('data-height') /
+        element.getAttribute('data-width');
 
       this.innerWidth = windowWidth;
 
@@ -55,8 +58,9 @@ class Cinemagraph extends Component {
         videoHeight = windowHeight;
         videoWidth = videoHeight / videoAspectRatio;
         document.querySelectorAll('body')[0].style.marginTop = 0;
-        document.querySelectorAll('body')[0].style.marginLeft = `${-(videoWidth - windowWidth) /
-          2}px`;
+        document.querySelectorAll('body')[0].style.marginLeft = `${-(
+          videoWidth - windowWidth
+        ) / 2}px`;
 
         document.querySelectorAll('body')[0].innerWidth = `${videoWidth}px`;
         document.querySelectorAll('body')[0].innerHeight = `${videoHeight}px`;
@@ -76,14 +80,17 @@ class Cinemagraph extends Component {
       <div className="homepage-hero-module">
         <div className="video-container">
           <div className="poster hidden">
-            <img src={this.props.fallbackImage} alt={this.props.fallbackImageAlt} />{' '}
+            <img
+              src={this.props.fallbackImage}
+              alt={this.props.fallbackImageAlt}
+            />{' '}
           </div>{' '}
           <div className="filter" />{' '}
           <video autoPlay muted loop className="fillWidth">
-            <source src={this.props.mp4Source} type="video/mp4" /> Your browser does not support the
-            video tag. I suggest you upgrade your browser.{' '}
-            <source src={this.props.webmSource} type="video/webm" />Your browser does not support
-            the video tag. I suggest you upgrade your browser.
+            <source src={this.props.mp4Source} type="video/mp4" /> Your browser
+            does not support the video tag. I suggest you upgrade your browser.{' '}
+            <source src={this.props.webmSource} type="video/webm" />Your browser
+            does not support the video tag. I suggest you upgrade your browser.
           </video>{' '}
         </div>{' '}
       </div>
