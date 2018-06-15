@@ -1,7 +1,7 @@
 # react-cinemagraph
 
 [![CircleCI](https://circleci.com/gh/Jac21/react-cinemagraph.svg?style=shield)](https://circleci.com/gh/Jac21/react-cinemagraph)
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/react-cinemagraph)
+[![npm](https://img.shields.io/npm/v/react-cinemagraph.svg)](https://www.npmjs.com/package/react-cinemagraph)
 [![donate](https://img.shields.io/badge/%24-Buy%20me%20a%20coffee-ff69b4.svg)](https://www.buymeacoffee.com/jac21)
 
 Generic [Cinemagraph](https://en.wikipedia.org/wiki/Cinemagraph) component, built for React.
@@ -13,21 +13,21 @@ Generic [Cinemagraph](https://en.wikipedia.org/wiki/Cinemagraph) component, buil
 [coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
 [coveralls]: https://coveralls.io/github/user/repo
 
-## The problem
+## The problem 🤔
 
 You want a generic, adaptive, React-friendly, and customizable Cinemagraph-style component within your React application.
 
-## This solution
+## This solution ✅
 
 This component - `react-cinemagraph`!
 
-## Installation
+## Installation 🎥
 
 ```
 $ npm i react-cinemagraph
 ```
 
-## Usage
+## Usage 🎬
 
 ```javascript
 import React from 'react';
@@ -62,7 +62,7 @@ class Demo extends Component {
 }
 ```
 
-## Props
+## Props 🎞
 
 Every prop from [`react-cinemagraph`](https://github.com/Jac21/react-cinemagraph#props) (fallbackImage, fallbackImageAlt, mp4Source, webmSource, isBlackAndWhite, isSepia, isBlurred)
 
