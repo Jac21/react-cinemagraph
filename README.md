@@ -24,7 +24,7 @@ This component - `react-cinemagraph`!
 ## Installation
 
 ```
-$ npm install react-cinemagraph
+$ npm i react-cinemagraph
 ```
 
 ## Usage
@@ -55,7 +55,7 @@ class Demo extends Component {
           isBlackAndWhite={this.state.isBlackAndWhite}
           isSepia={this.state.isSepia}
           isBlurred={this.state.isBlurred}
-        />{' '}
+        />
       </div>
     );
   }
@@ -64,7 +64,7 @@ class Demo extends Component {
 
 ## Props
 
-Every prop from [`react-cinemagraph`](https://github.com/Jac21/react-cinemagraph#props) (fallbackImage, fallbackImageAlt, mp4Source, webmSource)
+Every prop from [`react-cinemagraph`](https://github.com/Jac21/react-cinemagraph#props) (fallbackImage, fallbackImageAlt, mp4Source, webmSource, isBlackAndWhite, isSepia, isBlurred)
 
 ## fallbackImage
 
