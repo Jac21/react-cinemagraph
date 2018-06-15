@@ -1,5 +1,6 @@
-import t from 'prop-types';
 import React, { Component } from 'react';
+import t from 'prop-types';
+import classNames from 'classnames';
 
 import './css/styles.css';
 
@@ -76,6 +77,13 @@ class Cinemagraph extends Component {
   }
 
   render() {
+    const videoClass = classNames({
+      fillWidth: true,
+      'cinemagraph-black-and-white': this.props.isBlackAndWhite,
+      'cinemagraph-sepia': this.props.isSepia,
+      'cinemagraph-blur': this.props.isBlurred
+    });
+
     return (
       <div className="homepage-hero-module">
         <div className="video-container">
@@ -86,7 +94,7 @@ class Cinemagraph extends Component {
             />{' '}
           </div>{' '}
           <div className="filter" />{' '}
-          <video autoPlay muted loop className="fillWidth">
+          <video autoPlay muted loop className={videoClass}>
             <source src={this.props.mp4Source} type="video/mp4" /> Your browser
             does not support the video tag. I suggest you upgrade your browser.{' '}
             <source src={this.props.webmSource} type="video/webm" />Your browser
@@ -102,7 +110,10 @@ Cinemagraph.propTypes = {
   fallbackImage: t.string,
   fallbackImageAlt: t.string,
   mp4Source: t.string,
-  webmSource: t.string
+  webmSource: t.string,
+  isBlackAndWhite: t.bool,
+  isSepia: t.bool,
+  isBlurred: t.bool
 };
 
 export { Cinemagraph };

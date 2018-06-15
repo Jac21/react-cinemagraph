@@ -8,7 +8,10 @@ class Demo extends Component {
     fallbackImage: './demo/assets/Disco.jpg',
     fallbackImageAlt: 'Disco',
     mp4Source: './demo/assets/Disco.mp4',
-    webmSource: './demo/assets/Disco.webm'
+    webmSource: './demo/assets/Disco.webm',
+    isBlackAndWhite: false,
+    isSepia: false,
+    isBlurred: false
   };
 
   render() {
@@ -19,6 +22,9 @@ class Demo extends Component {
           fallbackImageAlt={this.state.fallbackImageAlt}
           mp4Source={this.state.mp4Source}
           webmSource={this.state.webmSource}
+          isBlackAndWhite={this.state.isBlackAndWhite}
+          isSepia={this.state.isSepia}
+          isBlurred={this.state.isBlurred}
         />{' '}
       </div>
     );
