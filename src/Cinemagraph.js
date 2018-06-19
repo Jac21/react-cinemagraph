@@ -107,10 +107,10 @@ class Cinemagraph extends Component {
 }
 
 Cinemagraph.propTypes = {
-  fallbackImage: t.string,
+  fallbackImage: t.any,
   fallbackImageAlt: t.string,
-  mp4Source: t.string,
-  webmSource: t.string,
+  mp4Source: t.any,
+  webmSource: t.any,
   isBlackAndWhite: t.bool,
   isSepia: t.bool,
   isBlurred: t.bool
