@@ -11,26 +11,15 @@ class Cinemagraph extends Component {
   }
 
   componentDidMount() {
-    this.scaleVideoContainer();
-
     this.initBannerVideoSize('.video-container .poster img');
     this.initBannerVideoSize('.video-container .filter');
     this.initBannerVideoSize('.video-container video');
 
     window.addEventListener('resize', () => {
-      this.scaleVideoContainer();
       this.scaleBannerVideoSize('.video-container .poster img');
       this.scaleBannerVideoSize('.video-container .filter');
       this.scaleBannerVideoSize('.video-container video');
     });
-  }
-
-  scaleVideoContainer() {
-    const height = window.innerHeight + 5;
-    const unitHeight = `${parseInt(height, 10)}px`;
-    document.getElementsByClassName(
-      'homepage-hero-module'
-    )[0].style.height = unitHeight;
   }
 
   initBannerVideoSize(elements) {
