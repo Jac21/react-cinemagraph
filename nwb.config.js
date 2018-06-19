@@ -5,7 +5,8 @@ module.exports = {
     umd: {
       global: 'ReactCinemagraph',
       externals: {
-        react: 'React'
+        react: 'React',
+        classnames: 'classNames'
       }
     }
   }
