@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import t from 'prop-types';
 import classNames from 'classnames';
 
-import './css/styles.css';
+import './styles.css';
 
 class Cinemagraph extends Component {
   constructor(props) {
