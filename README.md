@@ -6,6 +6,8 @@
 
 Generic [Cinemagraph](https://en.wikipedia.org/wiki/Cinemagraph) component, built for React.
 
+Demo - https://jac21.github.io/react-cinemagraph-demo/
+
 [build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
 [build]: https://travis-ci.org/user/repo
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
