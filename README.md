@@ -66,7 +66,7 @@ class Demo extends Component {
 }
 ```
 
-Alternatively (and [preferably, if using webpack](https://github.com/mehtarit/freud#adding-images-fonts-and-files)):
+Alternatively (and [preferably, if using webpack](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-images-fonts-and-files)):
 
 ```javascript
 import React from 'react';
