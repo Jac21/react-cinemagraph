@@ -66,6 +66,45 @@ class Demo extends Component {
 }
 ```
 
+Alternatively (and [preferably, if using webpack](https://github.com/mehtarit/freud#adding-images-fonts-and-files)):
+
+```javascript
+import React from 'react';
+import { Cinemagraph } from 'react-cinemagraph';
+
+import discoJpg from './assets/Disco.jpg';
+import discoMp4 from './assets/Disco.mp4';
+import discoWebM from './assets/Disco.webm';
+
+class Demo extends Component {
+  state = {
+    fallbackImage: discoJpg,
+    fallbackImageAlt: 'Disco',
+    mp4Source: discoMp4,
+    webmSource: discoWebM,
+    isBlackAndWhite: false,
+    isSepia: false,
+    isBlurred: false
+  };
+
+  render() {
+    return (
+      <div>
+        <Cinemagraph
+          fallbackImage={this.state.fallbackImage}
+          fallbackImageAlt={this.state.fallbackImageAlt}
+          mp4Source={this.state.mp4Source}
+          webmSource={this.state.webmSource}
+          isBlackAndWhite={this.state.isBlackAndWhite}
+          isSepia={this.state.isSepia}
+          isBlurred={this.state.isBlurred}
+        />
+      </div>
+    );
+  }
+}
+```
+
 ## Props 🎞
 
 Every prop from [`react-cinemagraph`](https://github.com/Jac21/react-cinemagraph#props) (fallbackImage, fallbackImageAlt, mp4Source, webmSource, isBlackAndWhite, isSepia, isBlurred)
