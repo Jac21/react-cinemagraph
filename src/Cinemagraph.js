@@ -75,7 +75,13 @@ class Cinemagraph extends Component {
 
     return (
       <div className="homepage-hero-module">
-        <div className="video-container">
+        <div
+          className="video-container"
+          style={{
+            height: `${this.props.height}vw`,
+            maxHeight: `${this.props.maxHeight}vh`
+          }}
+        >
           <div className="poster hidden">
             <img
               src={this.props.fallbackImage}
@@ -96,6 +102,8 @@ class Cinemagraph extends Component {
 }
 
 Cinemagraph.propTypes = {
+  height: t.number.isRequired,
+  maxHeight: t.number.isRequired,
   fallbackImage: t.any,
   fallbackImageAlt: t.string,
   mp4Source: t.any,

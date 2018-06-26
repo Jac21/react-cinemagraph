@@ -1,74 +1,73 @@
 body,
 div,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 .homepage-hero-module {
-    border-right: none;
-    border-left: none;
-    position: relative;
+  border-right: none;
+  border-left: none;
+  position: relative;
 }
 
 .no-video .video-container video,
 .touch .video-container video {
-    display: none;
+  display: none;
 }
 
 .no-video .video-container .poster,
 .touch .video-container .poster {
-    display: block !important;
+  display: block !important;
 }
 
 .video-container {
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 50vw;
-    width: 100%;
-    overflow: hidden;
-    background: #000;
+  position: relative;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
 }
 
 .video-container .poster img {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
 }
 
 .video-container .filter {
-    z-index: 100;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
+  z-index: 100;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
 }
 
 .video-container video {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
 }
 
 .video-container video.fillWidth {
-    width: 100%;
+  width: 100%;
 }
 
 .cinemagraph-black-and-white {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .cinemagraph-sepia {
-    -webkit-filter: sepia(100%);
-    filter: sepia(100%);
+  -webkit-filter: sepia(100%);
+  filter: sepia(100%);
 }
 
 .cinemagraph-blur {
-    filter: blur(5px);
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='$blur');
+  filter: blur(5px);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='$blur');
 }
