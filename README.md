@@ -1,5 +1,4 @@
-# react-cinemagraph
-
+![logo](https://raw.githubusercontent.com/Jac21/react-cinemagraph-demo/master/public/media/logo.png)
 [![CircleCI](https://circleci.com/gh/Jac21/react-cinemagraph.svg?style=shield)](https://circleci.com/gh/Jac21/react-cinemagraph)
 [![npm](https://img.shields.io/npm/v/react-cinemagraph.svg)](https://www.npmjs.com/package/react-cinemagraph)
 [![donate](https://img.shields.io/badge/%24-Buy%20me%20a%20coffee-ff69b4.svg)](https://www.buymeacoffee.com/jac21)
