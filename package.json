@@ -42,12 +42,14 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
-  "author": "",
-  "homepage": "https://www.jeremycantu.com",
+  "author": "Jeremy Cantu",
+  "homepage": "https://jac21.github.io/react-cinemagraph-demo/",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/Jac21/react-cinemagraph",
   "keywords": [
-    "react-component"
+    "react",
+    "react-component",
+    "cinemagraph"
   ],
   "eslintConfig": {
     "extends": "react-app"
