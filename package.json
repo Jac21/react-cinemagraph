@@ -21,9 +21,7 @@
     "patch": "npm version patch",
     "deploy": "npm publish"
   },
-  "dependencies": {
-    "classnames": "^2.2.6"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "16.x"
   },
