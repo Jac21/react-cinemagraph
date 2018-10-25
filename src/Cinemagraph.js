@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import t from 'prop-types';
+import { number, string, bool, any } from 'prop-types';
 import classNames from 'classnames';
 
 import './styles.css';
@@ -102,15 +102,15 @@ class Cinemagraph extends Component {
 }
 
 Cinemagraph.propTypes = {
-  height: t.number.isRequired,
-  maxHeight: t.number.isRequired,
-  fallbackImage: t.any,
-  fallbackImageAlt: t.string,
-  mp4Source: t.any,
-  webmSource: t.any,
-  isBlackAndWhite: t.bool,
-  isSepia: t.bool,
-  isBlurred: t.bool
+  height: number.isRequired,
+  maxHeight: number.isRequired,
+  fallbackImage: any,
+  fallbackImageAlt: string,
+  mp4Source: any,
+  webmSource: any,
+  isBlackAndWhite: bool,
+  isSepia: bool,
+  isBlurred: bool
 };
 
 export { Cinemagraph };
