@@ -78,6 +78,7 @@ class Cinemagraph extends Component {
           <div className="filter" />{' '}
           <video
             autoPlay
+            playsInline
             muted
             loop
             className={`
