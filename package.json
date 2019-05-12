@@ -19,7 +19,9 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
     "patch": "npm version patch",
-    "deploy": "npm publish"
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "postpublish": "git push origin --all; git push origin --tags"
   },
   "dependencies": {},
   "peerDependencies": {
