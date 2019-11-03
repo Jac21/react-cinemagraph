@@ -1,6 +1,6 @@
 {
   "name": "react-cinemagraph",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Generic Cinemagraph component, built for React.",
   "main": "lib/index.js",
   "module": "es/index.js",
