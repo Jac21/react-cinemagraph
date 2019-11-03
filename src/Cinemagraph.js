@@ -64,37 +64,39 @@ class Cinemagraph extends Component {
 
   render() {
     return (
-      <div className="homepage-hero-module">
-        <div
-          className="video-container"
-          style={{
-            height: `${this.props.height}vw`,
-            maxHeight: `${this.props.maxHeight}vh`
-          }}
-        >
-          <div className="poster hidden">
-            <img src={this.props.fallbackImage} alt={this.props.fallbackImageAlt} />{' '}
-          </div>{' '}
-          <div className="filter" />{' '}
-          <video
-            autoPlay
-            playsInline
-            muted
-            loop
-            className={`
-              fillWidth
-              ${this.props.isBlackAndWhite ? 'cinemagraph-black-and-white' : ''}
-              ${this.props.isSepia ? 'cinemagraph-sepia' : ''}
-              ${this.props.isBlurred ? 'cinemagraph-blur' : ''}
-        `}
+      <React.StrictMode>
+        <div className="homepage-hero-module">
+          <div
+            className="video-container"
+            style={{
+              height: `${this.props.height}vw`,
+              maxHeight: `${this.props.maxHeight}vh`
+            }}
           >
-            <source src={this.props.mp4Source} type="video/mp4" /> Your browser does not support the
-            video tag. I suggest you upgrade your browser.{' '}
-            <source src={this.props.webmSource} type="video/webm" />Your browser does not support
-            the video tag. I suggest you upgrade your browser.
-          </video>{' '}
-        </div>{' '}
-      </div>
+            <div className="poster hidden">
+              <img src={this.props.fallbackImage} alt={this.props.fallbackImageAlt} />{' '}
+            </div>{' '}
+            <div className="filter" />{' '}
+            <video
+              autoPlay
+              playsInline
+              muted
+              loop
+              className={`
+                fillWidth
+                ${this.props.isBlackAndWhite ? 'cinemagraph-black-and-white' : ''}
+                ${this.props.isSepia ? 'cinemagraph-sepia' : ''}
+                ${this.props.isBlurred ? 'cinemagraph-blur' : ''}
+          `}
+            >
+              <source src={this.props.mp4Source} type="video/mp4" /> Your browser does not support the
+              video tag. I suggest you upgrade your browser.{' '}
+              <source src={this.props.webmSource} type="video/webm" />Your browser does not support
+              the video tag. I suggest you upgrade your browser.
+            </video>{' '}
+          </div>{' '}
+        </div>
+      </React.StrictMode>
     );
   }
 }
