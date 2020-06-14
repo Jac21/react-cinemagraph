@@ -34,10 +34,10 @@
     "eslint-config-react-app": "^2.1.0",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-flowtype": "^2.50.3",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "nwb": "^0.24.5",
+    "eslint-plugin-react": "^7.20.0",
+    "nwb": "^0.24.7",
     "prettier-eslint": "^8.8.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
