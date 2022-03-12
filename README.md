@@ -1,18 +1,11 @@
 ![logo](https://raw.githubusercontent.com/Jac21/react-cinemagraph-demo/master/public/media/logo.png)
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![CircleCI](https://circleci.com/gh/Jac21/react-cinemagraph.svg?style=shield)](https://circleci.com/gh/Jac21/react-cinemagraph)
+![build workflow](https://github.com/Jac21/react-cinemagraph/actions/workflows/build.yml/badge.svg)
 [![npm](https://img.shields.io/npm/v/react-cinemagraph.svg)](https://www.npmjs.com/package/react-cinemagraph)
 [![donate](https://img.shields.io/badge/%24-Buy%20me%20a%20coffee-ff69b4.svg)](https://www.buymeacoffee.com/jac21)
 
 Generic [Cinemagraph](https://en.wikipedia.org/wiki/Cinemagraph) component, built for React.
-
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
 
 ## The problem 🤔
 
