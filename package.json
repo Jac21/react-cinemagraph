@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb build-react-component",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb build-react-component && cp src/styles.css es/styles.css && cp src/styles.css lib/styles.css",
     "copy-build": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb build --copy-files",
     "clean": "nwb clean-module && nwb clean-demo",
     "lint": "eslint nwb.config.js src demo/src tests --ext .js,.jsx",
