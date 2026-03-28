@@ -109,7 +109,7 @@ class Demo extends Component {
 
 ## Props 🎞
 
-Every prop from [`react-cinemagraph`](https://github.com/Jac21/react-cinemagraph#props) (height, maxHeight, fallbackImage, fallbackImageAlt, mp4Source, webmSource, isBlackAndWhite, isSepia, isBlurred)
+Every required and optional prop from [`react-cinemagraph`](https://github.com/Jac21/react-cinemagraph#props) (height, maxHeight, fallbackImage, fallbackImageAlt, mp4Source, webmSource, isBlackAndWhite, isSepia, isBlurred)
 
 ## height
 
