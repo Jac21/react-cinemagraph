@@ -1,7 +1,12 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
   },
   "extends": "airbnb",
   "plugins": ["react", "jsx-a11y", "import"],
@@ -32,7 +37,12 @@
   },
   "env": {
     "browser": true,
-    "es6": true
+    "es2022": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   },
   "globals": {
     "Promise": false

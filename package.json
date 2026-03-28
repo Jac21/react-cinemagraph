@@ -1,6 +1,6 @@
 {
   "name": "react-cinemagraph",
-  "version": "1.2.11",
+  "version": "2.0",
   "description": "Generic Cinemagraph component, built for React.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -11,36 +11,40 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
-    "copy-build": "nwb build --copy-files",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb build-react-component",
+    "copy-build": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb build --copy-files",
     "clean": "nwb clean-module && nwb clean-demo",
-    "start": "nwb serve-react-demo",
+    "lint": "eslint nwb.config.js src demo/src tests --ext .js,.jsx",
+    "lint:fix": "npm run lint -- --fix",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb serve-react-demo",
     "test": "",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server",
+    "test:coverage": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb test-react --coverage",
+    "test:watch": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb test-react --server",
     "patch": "npm version patch",
     "preversion": "npm test",
     "postversion": "npm publish",
     "postpublish": "git push"
   },
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.8.1"
+  },
   "peerDependencies": {
-    "react": "16.x"
+    "react": ">=16.14.0 <20"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-react-app": "^2.1.0",
-    "eslint-loader": "^2.2.1",
-    "eslint-plugin-flowtype": "^2.50.3",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
+    "@babel/core": "^7.28.4",
+    "@babel/eslint-parser": "^7.28.4",
+    "@babel/preset-react": "^7.27.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react": "^7.37.5",
     "nwb": "^0.25.2",
-    "prettier-eslint": "^8.8.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "author": "Jeremy Cantu",
   "homepage": "https://jac21.github.io/react-cinemagraph-demo/",
@@ -50,8 +54,5 @@
     "react",
     "react-component",
     "cinemagraph"
-  ],
-  "eslintConfig": {
-    "extends": "react-app"
-  }
+  ]
 }

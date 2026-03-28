@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { number, string, bool, any } from 'prop-types';
+import {
+  number, string, bool, any
+} from 'prop-types';
 
 import './styles.css';
 
@@ -37,17 +39,14 @@ class Cinemagraph extends Component {
     let videoHeight = 0;
 
     document.querySelectorAll(elements).forEach(element => {
-      const videoAspectRatio =
-        element.getAttribute('data-height') / element.getAttribute('data-width');
-
-      this.innerWidth = windowWidth;
+      const videoAspectRatio = element.getAttribute('data-height') / element.getAttribute('data-width');
 
       if (windowWidth < 1000) {
         videoHeight = windowHeight;
         videoWidth = videoHeight / videoAspectRatio;
         document.querySelectorAll('body')[0].style.marginTop = 0;
-        document.querySelectorAll('body')[0].style.marginLeft = `${-(videoWidth - windowWidth) /
-          2}px`;
+        document.querySelectorAll('body')[0].style.marginLeft = `${-(videoWidth - windowWidth)
+          / 2}px`;
 
         document.querySelectorAll('body')[0].innerWidth = `${videoWidth}px`;
         document.querySelectorAll('body')[0].innerHeight = `${videoHeight}px`;
@@ -63,20 +62,32 @@ class Cinemagraph extends Component {
   }
 
   render() {
+    const {
+      height,
+      maxHeight,
+      fallbackImage,
+      fallbackImageAlt,
+      mp4Source,
+      webmSource,
+      isBlackAndWhite,
+      isSepia,
+      isBlurred
+    } = this.props;
+
     return (
       <React.StrictMode>
         <div className="homepage-hero-module">
           <div
             className="video-container"
             style={{
-              height: `${this.props.height}vw`,
-              maxHeight: `${this.props.maxHeight}vh`
+              height: `${height}vw`,
+              maxHeight: `${maxHeight}vh`
             }}
           >
             <div className="poster hidden">
-              <img src={this.props.fallbackImage} alt={this.props.fallbackImageAlt} />{' '}
-            </div>{' '}
-            <div className="filter" />{' '}
+              <img src={fallbackImage} alt={fallbackImageAlt} />
+            </div>
+            <div className="filter" />
             <video
               autoPlay
               playsInline
@@ -84,17 +95,19 @@ class Cinemagraph extends Component {
               loop
               className={`
                 fillWidth
-                ${this.props.isBlackAndWhite ? 'cinemagraph-black-and-white' : ''}
-                ${this.props.isSepia ? 'cinemagraph-sepia' : ''}
-                ${this.props.isBlurred ? 'cinemagraph-blur' : ''}
+                ${isBlackAndWhite ? 'cinemagraph-black-and-white' : ''}
+                ${isSepia ? 'cinemagraph-sepia' : ''}
+                ${isBlurred ? 'cinemagraph-blur' : ''}
           `}
             >
-              <source src={this.props.mp4Source} type="video/mp4" /> Your browser does not support the
-              video tag. I suggest you upgrade your browser.{' '}
-              <source src={this.props.webmSource} type="video/webm" />Your browser does not support
+              <source src={mp4Source} type="video/mp4" />
+              Your browser does not support the
+              video tag. I suggest you upgrade your browser.
+              <source src={webmSource} type="video/webm" />
+              Your browser does not support
               the video tag. I suggest you upgrade your browser.
-            </video>{' '}
-          </div>{' '}
+            </video>
+          </div>
         </div>
       </React.StrictMode>
     );
