@@ -1,26 +1,171 @@
 import React, { Component } from 'react';
 import {
-  number, string, bool, any
+  number, string, bool, any, shape, oneOfType
 } from 'prop-types';
 
 import './styles.css';
 
+const effectValuePropType = oneOfType([number, string, bool]);
+
+const deprecatedEffectPropMap = Object.freeze({
+  isBlackAndWhite: {
+    effectName: 'grayscale',
+    replacementValue: 1
+  },
+  isSepia: {
+    effectName: 'sepia',
+    replacementValue: 1
+  },
+  isBlurred: {
+    effectName: 'blur',
+    replacementValue: 5
+  }
+});
+
+const effectRenderOrder = [
+  'grayscale',
+  'sepia',
+  'blur',
+  'brightness',
+  'contrast',
+  'saturate',
+  'hueRotate',
+  'invert',
+  'opacity',
+  'dropShadow'
+];
+
+const deprecatedEffectWarnings = new Set();
+
+const effectNamesToCssFilters = Object.freeze({
+  blur: 'blur',
+  brightness: 'brightness',
+  contrast: 'contrast',
+  dropShadow: 'drop-shadow',
+  grayscale: 'grayscale',
+  hueRotate: 'hue-rotate',
+  invert: 'invert',
+  opacity: 'opacity',
+  saturate: 'saturate',
+  sepia: 'sepia'
+});
+
+export const effectsPropType = shape({
+  blur: oneOfType([number, string]),
+  brightness: effectValuePropType,
+  contrast: effectValuePropType,
+  dropShadow: string,
+  grayscale: effectValuePropType,
+  hueRotate: oneOfType([number, string]),
+  invert: effectValuePropType,
+  opacity: effectValuePropType,
+  saturate: effectValuePropType,
+  sepia: effectValuePropType
+});
+
+const normalizeEffectValue = (effectName, rawValue) => {
+  if (rawValue === undefined || rawValue === null || rawValue === false) {
+    return null;
+  }
+
+  if (rawValue === true) {
+    return 1;
+  }
+
+  if (effectName === 'blur' && typeof rawValue === 'number') {
+    return `${rawValue}px`;
+  }
+
+  if (effectName === 'hueRotate' && typeof rawValue === 'number') {
+    return `${rawValue}deg`;
+  }
+
+  return rawValue;
+};
+
+export const getDeprecatedEffects = (props = {}) => Object.entries(deprecatedEffectPropMap).reduce(
+  (deprecatedEffects, [propName, config]) => {
+    if (!props[propName]) {
+      return deprecatedEffects;
+    }
+
+    return {
+      ...deprecatedEffects,
+      [config.effectName]: config.replacementValue
+    };
+  },
+  {}
+);
+
+export const buildFilterValue = (effects = {}, deprecatedProps = {}) => {
+  const composedEffects = {
+    ...getDeprecatedEffects(deprecatedProps),
+    ...effects
+  };
+
+  return effectRenderOrder
+    .map(effectName => {
+      const value = normalizeEffectValue(effectName, composedEffects[effectName]);
+
+      if (value === null || value === '') {
+        return null;
+      }
+
+      return `${effectNamesToCssFilters[effectName]}(${value})`;
+    })
+    .filter(Boolean)
+    .join(' ');
+};
+
+export const warnDeprecatedEffectProps = (props = {}) => {
+  if (process.env.NODE_ENV === 'production') {
+    return;
+  }
+
+  Object.entries(deprecatedEffectPropMap).forEach(([propName, config]) => {
+    if (!props[propName] || deprecatedEffectWarnings.has(propName)) {
+      return;
+    }
+
+    // eslint-disable-next-line no-console
+    console.warn(
+      `The \`${propName}\` prop is deprecated. Use \`effects={{ ${config.effectName}: ${config.replacementValue} }}\` instead.`
+    );
+    deprecatedEffectWarnings.add(propName);
+  });
+};
+
+export const resetDeprecatedEffectWarnings = () => {
+  deprecatedEffectWarnings.clear();
+};
+
 class Cinemagraph extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
+    warnDeprecatedEffectProps(this.props);
     this.initBannerVideoSize('.video-container .poster img');
     this.initBannerVideoSize('.video-container .filter');
     this.initBannerVideoSize('.video-container video');
 
-    window.addEventListener('resize', () => {
-      this.scaleBannerVideoSize('.video-container .poster img');
-      this.scaleBannerVideoSize('.video-container .filter');
-      this.scaleBannerVideoSize('.video-container video');
-    });
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentDidUpdate() {
+    warnDeprecatedEffectProps(this.props);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize() {
+    this.scaleBannerVideoSize('.video-container .poster img');
+    this.scaleBannerVideoSize('.video-container .filter');
+    this.scaleBannerVideoSize('.video-container video');
   }
 
   initBannerVideoSize(elements) {
@@ -69,10 +214,23 @@ class Cinemagraph extends Component {
       fallbackImageAlt,
       mp4Source,
       webmSource,
+      effects,
       isBlackAndWhite,
       isSepia,
       isBlurred
     } = this.props;
+
+    const filterValue = buildFilterValue(effects, {
+      isBlackAndWhite,
+      isSepia,
+      isBlurred
+    });
+    const videoStyle = filterValue
+      ? {
+        WebkitFilter: filterValue,
+        filter: filterValue
+      }
+      : undefined;
 
     return (
       <React.StrictMode>
@@ -93,12 +251,8 @@ class Cinemagraph extends Component {
               playsInline
               muted
               loop
-              className={`
-                fillWidth
-                ${isBlackAndWhite ? 'cinemagraph-black-and-white' : ''}
-                ${isSepia ? 'cinemagraph-sepia' : ''}
-                ${isBlurred ? 'cinemagraph-blur' : ''}
-          `}
+              className="fillWidth"
+              style={videoStyle}
             >
               <source src={mp4Source} type="video/mp4" />
               Your browser does not support the
@@ -121,6 +275,7 @@ Cinemagraph.propTypes = {
   fallbackImageAlt: string,
   mp4Source: any,
   webmSource: any,
+  effects: effectsPropType,
   isBlackAndWhite: bool,
   isSepia: bool,
   isBlurred: bool

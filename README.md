@@ -39,9 +39,12 @@ class Demo extends Component {
     fallbackImageAlt: 'Disco',
     mp4Source: './demo/assets/Disco.mp4',
     webmSource: './demo/assets/Disco.webm',
-    isBlackAndWhite: false,
-    isSepia: false,
-    isBlurred: false
+    effects: {
+      grayscale: 1,
+      sepia: 0.35,
+      blur: 2,
+      contrast: 1.1
+    }
   };
 
   render() {
@@ -54,9 +57,7 @@ class Demo extends Component {
           fallbackImageAlt={this.state.fallbackImageAlt}
           mp4Source={this.state.mp4Source}
           webmSource={this.state.webmSource}
-          isBlackAndWhite={this.state.isBlackAndWhite}
-          isSepia={this.state.isSepia}
-          isBlurred={this.state.isBlurred}
+          effects={this.state.effects}
         />
       </div>
     );
@@ -82,9 +83,12 @@ class Demo extends Component {
     fallbackImageAlt: 'Disco',
     mp4Source: discoMp4,
     webmSource: discoWebM,
-    isBlackAndWhite: false,
-    isSepia: false,
-    isBlurred: false
+    effects: {
+      grayscale: 1,
+      sepia: 0.35,
+      blur: 2,
+      contrast: 1.1
+    }
   };
 
   render() {
@@ -97,9 +101,7 @@ class Demo extends Component {
           fallbackImageAlt={this.state.fallbackImageAlt}
           mp4Source={this.state.mp4Source}
           webmSource={this.state.webmSource}
-          isBlackAndWhite={this.state.isBlackAndWhite}
-          isSepia={this.state.isSepia}
-          isBlurred={this.state.isBlurred}
+          effects={this.state.effects}
         />
       </div>
     );
@@ -109,7 +111,7 @@ class Demo extends Component {
 
 ## Props 🎞
 
-Every required and optional prop from [`react-cinemagraph`](https://github.com/Jac21/react-cinemagraph#props) (height, maxHeight, fallbackImage, fallbackImageAlt, mp4Source, webmSource, isBlackAndWhite, isSepia, isBlurred)
+Every required and optional prop from [`react-cinemagraph`](https://github.com/Jac21/react-cinemagraph#props) (height, maxHeight, fallbackImage, fallbackImageAlt, mp4Source, webmSource, effects)
 
 ## height
 
@@ -147,20 +149,40 @@ Type: String
 
 File path for the Cinemagraph's WebM file-type video source
 
-## isBlackAndWhite
+## effects
 
-Type: Boolean
+Type: Object
 
-Option to have a black-and-white filter applied to the Cinemagraph
+CSS filter values to apply to the Cinemagraph's video in a composable way.
 
-## isSepia
+Supported keys:
 
-Type: Boolean
+- `blur`
+- `brightness`
+- `contrast`
+- `dropShadow`
+- `grayscale`
+- `hueRotate`
+- `invert`
+- `opacity`
+- `saturate`
+- `sepia`
 
-Option to have a sepia filter applied to the Cinemagraph
+Examples:
 
-## isBlurred
+```javascript
+effects={{
+  grayscale: 1,
+  sepia: 0.35,
+  blur: 4,
+  contrast: 1.1,
+  hueRotate: 45,
+  dropShadow: '0 8px 24px rgba(0, 0, 0, 0.25)'
+}}
+```
 
-Type: Boolean
+Numeric `blur` values are treated as pixels, numeric `hueRotate` values are treated as degrees, and the remaining numeric effect values are passed through directly.
 
-Option to have a blur filter applied to the Cinemagraph
+## Deprecated props
+
+`isBlackAndWhite`, `isSepia`, and `isBlurred` still work for backwards compatibility, but they are deprecated in favor of `effects`. If both are provided, explicit `effects` values win.

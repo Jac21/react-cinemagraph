@@ -1,6 +1,6 @@
 {
   "name": "react-cinemagraph",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Generic Cinemagraph component, built for React.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -17,11 +17,12 @@
     "lint": "eslint nwb.config.js src demo/src tests --ext .js,.jsx",
     "lint:fix": "npm run lint -- --fix",
     "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb serve-react-demo",
-    "test": "",
+    "test": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb test-react",
     "test:coverage": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb test-react --coverage",
     "test:watch": "cross-env NODE_OPTIONS=--openssl-legacy-provider nwb test-react --server",
     "patch": "npm version patch",
     "preversion": "npm test",
+    "prepublishOnly": "npm run build",
     "postversion": "npm publish",
     "postpublish": "git push"
   },
@@ -49,7 +50,10 @@
   "author": "Jeremy Cantu",
   "homepage": "https://jac21.github.io/react-cinemagraph-demo/",
   "license": "MIT",
-  "repository": "https://github.com/Jac21/react-cinemagraph",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jac21/react-cinemagraph.git"
+  },
   "keywords": [
     "react",
     "react-component",
